@@ -13,9 +13,9 @@ public class DataSeries {
 public class StatementResult {
     let statementId: Int
     let resultSeries: [DataSeries]
-    let query: InfluxDbQuery
+    let query: IdbQuery
     
-    init(id: Int, results: [DataSeries], query: InfluxDbQuery) {
+    init(id: Int, results: [DataSeries], query: IdbQuery) {
         statementId = id
         resultSeries = results
         self.query = query

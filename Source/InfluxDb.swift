@@ -10,7 +10,7 @@ public class InfluxDb {
         dbName = database
     }
     
-    public static func query(_ queries: [InfluxDbQuery], completion: @escaping ([StatementResult]?) -> Void) {
+    public static func query(_ queries: [IdbQuery], completion: @escaping ([StatementResult]?) -> Void) {
         return InfluxDb.query(queries.map { $0.queryString }.joined(separator: ";")) { responseJson in
             guard let responseJson = responseJson,
                 let resultArray = responseJson["results"] as? [[String: Any]] else {
@@ -35,7 +35,7 @@ public class InfluxDb {
         }
     }
     
-    public static func query(_ query: InfluxDbQuery, completion: @escaping ([StatementResult]?) -> Void) {
+    public static func query(_ query: IdbQuery, completion: @escaping ([StatementResult]?) -> Void) {
         return InfluxDb.query([query], completion: completion)
     }
     
