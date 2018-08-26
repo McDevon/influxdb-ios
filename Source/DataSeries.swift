@@ -29,6 +29,10 @@ public class StatementResult {
         return resultSeries.filter { $0.name == seriesName }.first?.values[query.columnNames.first ?? ""] as? [Double]
     }
     
+    public func stringResults(forSeries seriesName: String) -> [String]? {
+        return resultSeries.filter { $0.name == seriesName }.first?.values[query.columnNames.first ?? ""] as? [String]
+    }
+    
     public func dateResults(forSeries seriesName: String) -> [Date]? {
         let strings = resultSeries.filter({ $0.name == seriesName }).first?.values["time"] as? [String]
         return strings?.compactMap { Formatter.iso8601.date(from: $0) ?? nil }
