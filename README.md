@@ -26,7 +26,7 @@ let lowestLevelOfDayQuery = InfluxDb.makeQuery { q in
 InfluxDb.query(lowestLevelOfDayQuery) { results in
     guard let firstResult = results?.first,
         let lowestTime = firstResult.dateResults(forSeries: "water_level")?.first,
-        let lowestValue = firstResult.doubleResults(forSeries: "water_level")?.first else { return 
+        let lowestValue = firstResult.doubleResults(forSeries: "water_level")?.first else { return }
     print("Lowest water level in tank 1 during last 24 hours: \(lowestValue) at \(lowestTime.description(with: Locale.current))")
 }
 ```
