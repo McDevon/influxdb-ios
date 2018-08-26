@@ -1,16 +1,16 @@
 import Foundation
 
-class InfluxDb {
+public class InfluxDb {
     
     private static var dbName = "database"
     private static var dbUrl = "localhost:8086"
     
-    static func setup(url: String, database: String) {
+    public static func setup(url: String, database: String) {
         dbUrl = url
         dbName = database
     }
     
-    static func query(_ queries: [InfluxDbQuery], completion: @escaping ([StatementResult]?) -> Void) {
+    public static func query(_ queries: [InfluxDbQuery], completion: @escaping ([StatementResult]?) -> Void) {
         return InfluxDb.query(queries.map { $0.queryString }.joined(separator: ";")) { responseJson in
             guard let responseJson = responseJson,
                 let resultArray = responseJson["results"] as? [[String: Any]] else {
@@ -35,7 +35,7 @@ class InfluxDb {
         }
     }
     
-    static func query(_ query: InfluxDbQuery, completion: @escaping ([StatementResult]?) -> Void) {
+    public static func query(_ query: InfluxDbQuery, completion: @escaping ([StatementResult]?) -> Void) {
         return InfluxDb.query([query], completion: completion)
     }
     

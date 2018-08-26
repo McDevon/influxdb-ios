@@ -1,6 +1,6 @@
 import Foundation
 
-struct DataSeries {
+public class DataSeries {
     let name: String
     let values: [String: [Any]]
     
@@ -10,7 +10,7 @@ struct DataSeries {
     }
 }
 
-struct StatementResult {
+public class StatementResult {
     let statementId: Int
     let resultSeries: [DataSeries]
     let query: InfluxDbQuery

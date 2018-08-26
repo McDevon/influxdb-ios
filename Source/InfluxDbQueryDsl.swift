@@ -1,6 +1,6 @@
 import Foundation
 
-class InfluxDbQuery {
+public class InfluxDbQuery {
     
     private var _select = ""
     private var _from = [String]()
@@ -36,7 +36,7 @@ class InfluxDbQuery {
     }
 }
 
-class InfluxDbQueryMaker {
+public class InfluxDbQueryMaker {
     
     private let _query = InfluxDbQuery()
     private lazy var _select = InfluxDbQuerySelectMaker(self)
@@ -69,9 +69,9 @@ class InfluxDbQueryMaker {
     }
 }
 
-class InfluxDbQuerySelectMaker {
+public class InfluxDbQuerySelectMaker {
     
-    private static let defaultFieldName = "value"
+    public static let defaultFieldName = "value"
     
     private let maker: InfluxDbQueryMaker
     internal var queryString: String = ""
@@ -101,7 +101,7 @@ class InfluxDbQuerySelectMaker {
     }
 }
 
-class InfluxDbQueryWhereMaker {
+public class InfluxDbQueryWhereMaker {
     
     private let maker: InfluxDbQueryMaker
 
@@ -126,7 +126,7 @@ protocol InfluxDbQueryWhereTest {
     func queryCompatibleString() -> String
 }
 
-class InfluxDbQueryWhereTagTest: InfluxDbQueryWhereTest {
+public class InfluxDbQueryWhereTagTest: InfluxDbQueryWhereTest {
     
     private let maker: InfluxDbQueryMaker
     
@@ -152,7 +152,7 @@ class InfluxDbQueryWhereTagTest: InfluxDbQueryWhereTest {
     }
 }
 
-class InfluxDbQueryWhereTimeTest: InfluxDbQueryWhereTest {
+public class InfluxDbQueryWhereTimeTest: InfluxDbQueryWhereTest {
     
     private let maker: InfluxDbQueryMaker
     
@@ -228,7 +228,7 @@ class InfluxDbQueryWhereTimeTest: InfluxDbQueryWhereTest {
     }
 }
 
-class InfluxDbQueryWhereValueTest: InfluxDbQueryWhereTest {
+public class InfluxDbQueryWhereValueTest: InfluxDbQueryWhereTest {
     
     private let maker: InfluxDbQueryMaker
     
