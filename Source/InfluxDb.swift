@@ -11,7 +11,7 @@ public class InfluxDb {
     }
     
     public static func query(_ queries: [IdbQuery], completion: @escaping ([StatementResult]?) -> Void) {
-        return InfluxDb.query(queries.map { $0.queryString }.joined(separator: ";")) { responseJson in
+        return InfluxDb.query(withString: queries.map { $0.queryString }.joined(separator: ";")) { responseJson in
             guard let responseJson = responseJson,
                 let resultArray = responseJson["results"] as? [[String: Any]] else {
                     completion(nil)
@@ -39,12 +39,12 @@ public class InfluxDb {
         return InfluxDb.query([query], completion: completion)
     }
     
-    static private func query(_ queryString: String, completion: @escaping ([String: Any]?) -> Void) {
+    public static func query(withString query: String, completion: @escaping ([String: Any]?) -> Void) {
         DispatchQueue.global(qos: .background).async {
             
             let bodyObject: [String: String] = [
                 "db": dbName,
-                "q": queryString
+                "q": query
             ]
             
             let userRequestOpt = URLRequest.urlEncodedApiRequest(endpoint: URL.init(string:
