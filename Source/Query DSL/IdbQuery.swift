@@ -5,19 +5,24 @@ public class IdbQuery {
     private var _select = ""
     private var _from = [String]()
     private var _whereTests = [String]()
+    private var _groupBy = ""
     private var _columnNames = [String]()
     
-    internal func setup(select: IdbQuerySelectMaker, from: [String], wheres: [IdbQueryWhereTest]) {
+    internal func setup(select: IdbQuerySelectMaker,
+                        from: [String],
+                        wheres: [IdbQueryWhereTest],
+                        groupBy: IdbQueryGroupByMaker) {
         _select = select.queryString
         _columnNames = select.columnNames
         _from = from
         _whereTests = wheres.map{ $0.queryCompatibleString() }
+        _groupBy = groupBy.queryString
     }
     
     public var queryString: String {
         var whereClause = ""
         var intoClause = ""
-        var groupByClause = ""
+        let groupByClause = _groupBy.count > 0 ? _groupBy : ""
         var orderByClause = ""
         var limitClause = ""
         var offsetClause = ""
@@ -28,7 +33,10 @@ public class IdbQuery {
             let whereTestString = _whereTests.joined(separator: " and ")
             whereClause = " where \(whereTestString)"
         }
-        return "select \(_select)\(intoClause) from \(fromString)\(whereClause)\(groupByClause)\(orderByClause)\(limitClause)\(offsetClause)\(slimitClause)\(soffsetClause)"
+        
+        let queryString = "select \(_select)\(intoClause) from \(fromString)\(whereClause)\(groupByClause)\(orderByClause)\(limitClause)\(offsetClause)\(slimitClause)\(soffsetClause)"
+        print("Q: \(queryString)")
+        return queryString
     }
     
     public var columnNames: [String] {

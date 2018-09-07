@@ -2,21 +2,21 @@ import Foundation
 
 public class IdbQueryWhereMaker {
     
-    private let maker: IdbQueryMaker
+    private let _maker: IdbQueryMaker
     
     init(_ maker: IdbQueryMaker) {
-        self.maker = maker
+       _maker = maker
     }
     
     public func tag(_ tag: String) -> IdbQueryWhereTagTest {
-        return IdbQueryWhereTagTest(maker: maker, tag: tag)
+        return IdbQueryWhereTagTest(maker: _maker, tag: tag)
     }
     
     public var time: IdbQueryWhereTimeTest {
-        return IdbQueryWhereTimeTest(maker: maker)
+        return IdbQueryWhereTimeTest(maker: _maker)
     }
     
     public var value: IdbQueryWhereValueTest {
-        return IdbQueryWhereValueTest(maker: maker)
+        return IdbQueryWhereValueTest(maker: _maker)
     }
 }

@@ -1,8 +1,8 @@
 import Foundation
 
 public class DataSeries {
-    let name: String
-    let values: [String: [Any]]
+    public let name: String
+    public let values: [String: [Any]]
     
     init(name: String, values: [String: [Any]]) {
         self.name = name
@@ -11,9 +11,9 @@ public class DataSeries {
 }
 
 public class StatementResult {
-    let statementId: Int
-    let resultSeries: [DataSeries]
-    let query: IdbQuery
+    public let statementId: Int
+    public let resultSeries: [DataSeries]
+    public let query: IdbQuery
     
     init(id: Int, results: [DataSeries], query: IdbQuery) {
         statementId = id

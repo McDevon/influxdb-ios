@@ -5,9 +5,10 @@ public class IdbQueryMaker {
     private let _query = IdbQuery()
     private lazy var _select = IdbQuerySelectMaker(self)
     private lazy var _where = IdbQueryWhereMaker(self)
+    private lazy var _groupBy = IdbQueryGroupByMaker(self)
     private var _from = [String]()
     
-    private var whereObjects = [IdbQueryWhereTest]()
+    private var _whereObjects = [IdbQueryWhereTest]()
     
     public var select: IdbQuerySelectMaker {
         return _select
@@ -23,12 +24,19 @@ public class IdbQueryMaker {
         return _where
     }
     
+    public var groupBy: IdbQueryGroupByMaker {
+        return _groupBy
+    }
+    
     internal func addWhere(_ whereObject: IdbQueryWhereTest) {
-        whereObjects.append(whereObject)
+        _whereObjects.append(whereObject)
     }
     
     internal func build() -> IdbQuery {
-        _query.setup(select: _select, from: _from, wheres: whereObjects)
+        _query.setup(select: _select,
+                     from: _from,
+                     wheres: _whereObjects,
+                     groupBy: _groupBy)
         return _query
     }
 }

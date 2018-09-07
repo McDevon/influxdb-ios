@@ -21,6 +21,8 @@
 		4C40AE442132E4CC0045B8E6 /* IdbQueryWhereTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40AE432132E4CC0045B8E6 /* IdbQueryWhereTimeTest.swift */; };
 		4C40AE462132E4ED0045B8E6 /* IdbQueryWhereValueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40AE452132E4ED0045B8E6 /* IdbQueryWhereValueTest.swift */; };
 		4C40AE482132E5110045B8E6 /* IdbQuerySelectMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40AE472132E5110045B8E6 /* IdbQuerySelectMaker.swift */; };
+		4C5244F12142E8EF009A84A8 /* IdbQueryGroupByMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5244F02142E8EF009A84A8 /* IdbQueryGroupByMaker.swift */; };
+		4C5244F32142EEA7009A84A8 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5244F22142EEA7009A84A8 /* Math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		4C40AE432132E4CC0045B8E6 /* IdbQueryWhereTimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdbQueryWhereTimeTest.swift; sourceTree = "<group>"; };
 		4C40AE452132E4ED0045B8E6 /* IdbQueryWhereValueTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdbQueryWhereValueTest.swift; sourceTree = "<group>"; };
 		4C40AE472132E5110045B8E6 /* IdbQuerySelectMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdbQuerySelectMaker.swift; sourceTree = "<group>"; };
+		4C5244F02142E8EF009A84A8 /* IdbQueryGroupByMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdbQueryGroupByMaker.swift; sourceTree = "<group>"; };
+		4C5244F22142EEA7009A84A8 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				4C40AE2B2132D90F0045B8E6 /* FormatterExt.swift */,
 				4C40AE2D2132D9150045B8E6 /* UrlRequestExt.swift */,
+				4C5244F22142EEA7009A84A8 /* Math.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				4C40AE412132E4B10045B8E6 /* IdbQueryWhereTagTest.swift */,
 				4C40AE432132E4CC0045B8E6 /* IdbQueryWhereTimeTest.swift */,
 				4C40AE452132E4ED0045B8E6 /* IdbQueryWhereValueTest.swift */,
+				4C5244F02142E8EF009A84A8 /* IdbQueryGroupByMaker.swift */,
 			);
 			path = "Query DSL";
 			sourceTree = "<group>";
@@ -202,8 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5244F12142E8EF009A84A8 /* IdbQueryGroupByMaker.swift in Sources */,
 				4C40AE442132E4CC0045B8E6 /* IdbQueryWhereTimeTest.swift in Sources */,
 				4C40AE292132D88E0045B8E6 /* DataSeries.swift in Sources */,
+				4C5244F32142EEA7009A84A8 /* Math.swift in Sources */,
 				4C40AE272132D88E0045B8E6 /* IdbQuery.swift in Sources */,
 				4C40AE482132E5110045B8E6 /* IdbQuerySelectMaker.swift in Sources */,
 				4C40AE2E2132D9150045B8E6 /* UrlRequestExt.swift in Sources */,
